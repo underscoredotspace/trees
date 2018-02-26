@@ -10,22 +10,45 @@ class PineTrees extends React.Component {
     this.state = {
       trees: []
     }
+    window.addEventListener('resize', ()=>this.screenResize())
   }
+
+  screenResize() {
+    const diff = this.state.trees.length - Math.floor(window.innerWidth/90)
+    if (diff === 0) {return}
+    
+    const trees = [...this.state.trees]
+
+    if (diff < 0) {
+      for(let ndx = 0; ndx < -diff; ndx++) {
+        trees.push(this.newTree())
+      }
+    } else {
+      trees.splice(trees.length - diff)
+    }
+
+    this.setState({trees})
+  }
+
+  newTree() {
+    const margin = rnd(0,30)
+    const marginBottom = `${margin}vh`
+    const transform = `translateX(${rnd(-20,20)}%) scale(${1.5-(margin/30)})`
+    const zIndex = 30-margin
+    return {style:{marginBottom, transform, zIndex}}
+  }
+
   componentDidMount() {
     const trees = []
     for (let ndx = 1; ndx < (window.innerWidth/90); ndx++) {
-      // for (let ndx = 1; ndx < 3; ndx++) {
-        const margin = rnd(0,30)
-        const marginBottom = `${margin}vh`
-        const transform = `translateX(${rnd(-20,20)}%) scale(${1.5-(margin/30)})`
-        const zIndex = 30-margin
-      trees.push({style:{marginBottom, transform, zIndex}})
+      trees.push(this.newTree())
     }
 
     this.setState({trees})
   }
 
   render() {
+    console.log('render')
     return this.state.trees.map((tree, ndx) => (
         <PineTree {...tree} key={`tree-${ndx}`} />
       ))
@@ -34,7 +57,6 @@ class PineTrees extends React.Component {
 class PineTree extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
     this.state = {
       lines:[], 
       polylines:[], 
