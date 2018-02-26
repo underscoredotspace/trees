@@ -4,11 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-react-app": "^3.1.1",
+    "node-sass": "^4.7.2",
     "parcel-bundler": "^1.6.2",
-    "node-sass": "^4.7.2"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "scripts": {
-    "start": "parcel app/index.html --open",
+    "start": "parcel app/index.html",
     "build": "parcel build app/index.html --public-url ./"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
   }
 }
