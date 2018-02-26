@@ -1,0 +1,24 @@
+#trees {
+  display: flex;
+  flex-flow: row nowrap;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  align-items: flex-end;
+}
+
+.tree {
+  display: grid;
+  // justify-content: center;
+  align-content: end;
+  text-align: center;
+  height: 30vh;
+  margin: 10px;
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}

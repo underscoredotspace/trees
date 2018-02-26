@@ -1,0 +1,15 @@
+{
+  "name": "trees",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "parcel-bundler": "^1.6.2"
+  },
+  "scripts": {
+    "start": "parcel app/index.html --open"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  }
+}
