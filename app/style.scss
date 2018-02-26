@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 #trees {
   display: flex;
   flex-flow: row nowrap;
@@ -11,14 +15,25 @@
 
 .tree {
   display: grid;
-  // justify-content: center;
   align-content: end;
-  text-align: center;
   height: 30vh;
-  margin: 10px;
-  img {
-    max-height: 100%;
+  flex: 1;
+
+  svg {
+    max-height: 30vh;
+    min-height: auto;
     max-width: 100%;
     margin: 0 auto;
+  }
+
+  .pine-trunk {
+    stroke: saddlebrown;
+    stroke-width: 1px;
+  }
+  
+  .pine-needle {
+    stroke: darkgreen;
+    fill: none;
+    stroke-width: 1px;
   }
 }
