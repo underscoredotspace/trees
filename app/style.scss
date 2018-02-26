@@ -2,6 +2,15 @@ body {
   overflow: hidden;
 }
 
+#sky {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 30vh;
+  left: 0;
+  background-color: black;
+}
+
 #trees {
   display: flex;
   flex-flow: row nowrap;
@@ -18,6 +27,7 @@ body {
   align-content: end;
   height: 30vh;
   flex: 1;
+  transform-origin: bottom center;
 
   svg {
     max-height: 30vh;
@@ -34,6 +44,10 @@ body {
   .pine-needle {
     stroke: darkgreen;
     fill: none;
+    stroke-width: 1px;
+  }
+  .snow-needle {
+    stroke: white;
     stroke-width: 1px;
   }
 }
