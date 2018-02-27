@@ -51,3 +51,14 @@ body {
     stroke-width: 1px;
   }
 }
+
+@media (max-width: 400px) {
+  #trees .pine-tree {
+    display: none;
+  }
+
+  #trees :first-child {
+    display: grid;
+    transform: none !important;
+  }
+}

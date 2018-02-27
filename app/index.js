@@ -24,6 +24,7 @@ class PineTrees extends React.Component {
         trees.push(this.newTree())
       }
     } else {
+      if (trees.length === 1) {return}
       trees.splice(trees.length - diff)
     }
 
@@ -43,12 +44,13 @@ class PineTrees extends React.Component {
     for (let ndx = 1; ndx < (window.innerWidth/90); ndx++) {
       trees.push(this.newTree())
     }
+    
+    if ((window.innerWidth/90) <= 1) {trees.push(this.newTree())}
 
     this.setState({trees})
   }
 
   render() {
-    console.log('render')
     return this.state.trees.map((tree, ndx) => (
         <PineTree {...tree} key={`tree-${ndx}`} />
       ))
